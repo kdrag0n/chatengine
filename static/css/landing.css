@@ -1,0 +1,187 @@
+.aur-bg{background:url(../img/bg1.jpg) !important;background-size:cover !important;min-height:100vh !important;background-color:rgb(5,5,5) !important;}
+
+.scene {
+    min-height: 50vh;
+    max-height: 100vh;
+    position: static;
+    background:url(../img/bg4.jpg) !important;background-size:cover !important;background-color:rgb(5,5,5) !important;
+    position: static;
+}
+
+main > section, main > header, main > footer {
+    margin: 0;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: "Josefin Sans", "Cabin", "Lato", "OpenSans", "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif, sans;
+}
+
+.scene h1 {
+    font-size: 5em;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+.scene h2 {
+    font-size: 4em;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+.scene h3 {
+    font-size: 3.25em;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+.caps, caps {
+    text-transform: uppercase;
+}
+
+knockout {
+    mix-blend-mode: screen;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.full {
+    min-height: 100vh;
+}
+
+.mono, *[font="mono"] {
+    font-family: "Fira Code", "Source Code Pro", "Ubuntu Mono", "Roboto Mono", "Consolas", "Monaco", monospace;
+}
+
+.vhcenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vcenter {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hcenter {
+    margin: 0 auto !important;
+}
+
+a.item {
+    color: #c6c6c6;
+    margin-right: 2rem;
+    text-decoration: none;
+    transition: color 125ms ease;
+    font-size: 18pt;
+}
+
+a.item.active {
+    color: #ececec;
+    border-bottom: #fff;
+    border-bottom-width: 2px;
+}
+
+a.item:hover {
+    color: #ffffff;
+}
+
+.main-btn {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-delay: 0.75s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    background-color: rgb(219, 40, 40);
+    padding: 1rem 2rem;
+    border-radius: 0.15rem;
+    font-size: 3em;
+}
+
+.main-btn:hover {
+    background-color: rgb(202, 16, 16);
+}
+
+.main-btn:active {
+    background-color: rgb(178, 30, 30);
+}
+
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-delay: 0.75s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.navbar {
+    flex-grow: 1;
+    justify-content: space-around;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    padding-top: 1.5rem;
+}
+
+.navbar > flex {
+    justify-content: flex-start;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.footer {
+    background:
+            linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+            linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+            linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+            linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+            linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+            linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+    padding: 4rem 8rem;
+}
+
+flex {
+    display: flex;
+}
+
+*[font="cabin"] {
+    font-family: "Cabin", "Josefin Sans", "Lato", "OpenSans", "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif, sans;
+}
+
+*[font="josefin"] {
+    font-family: "Josefin Sans", "Cabin", "Lato", "OpenSans", "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif, sans;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Admin Login" "The login page for ChatEngine's admin interface. DO NOT ENTER." "admin/login"}}
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <h1>Admin Login</h1>
+    <p>Here you can login to the admin interface.</p>
+
+    <form action="login" method="post" enctype="application/x-www-form-urlencoded">
+        <h2>Enter Key</h2>
+        <input type="text" placeholder="Enter admin key..." pattern="^[0-9a-f]{96}$" name="key" required>
+        <button type="submit">Login</button>
+    </form>
+
+    {{if .error}}<h2 style="color: red;">{{.error}}</h2>{{else}}<br>{{end}}
+
+    <a href="/">Back to landing page</a><br><br>
+    Generated at {{.now.Format "Mon, Jan 2 3:04 PM MST"}}
+</body>
+</html>

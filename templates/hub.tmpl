@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head .title "ChatEngine, a natural language conversational chat bot that talks to you like a human." .abspath}}
+
+    <link rel="preload" href="/static/img/bg4.jpg" as="image">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" integrity="sha384-KZ+/uyBm2IDvPclmu18nOw+89Z+hxkiuEmXkuY/2A0Yi22k688CGxV3YS7PtGKgZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/bg4.css">
+</head>
+<body>
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-4 is-offset-4">
+                    <h1 class="title" style="color:white;">
+                        <!--<img src="/static/img/icon.png" alt="ChatEngine" class="image">-->
+                        {{.title}}
+                    </h1>
+                    <div class="box"><p>{{.desc}}</p></div>
+                    <div class="box">{{if .listhead}}<h2>{{.listhead}}</h2>{{end}}
+                        <ul>
+                            {{range .list}}
+                            <li>{{.}}</li>
+                            {{end}}
+                        </ul>
+                    </div>
+                    <div class="box"><a href="/">Back to landing page</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.g-recaptcha > div {
+    margin: 0 auto;
+}
+
+.g-recaptcha {
+    margin-bottom: 1.5rem;
+}
+
+.himage {
+    width: 2.5em;
+    height: auto;
+    margin: 0 auto;
+}
+
+.box {
+    text-align: center;
+}
+
+input {
+    -webkit-transition: box-shadow, border 300ms;
+    transition: box-shadow, border 300ms;
+}
+
+.button {
+    -webkit-transition: background-color, border-color 300ms;
+    transition: background-color, border-color 300ms;
+}
+
+i.fa {
+    -webkit-transition: color 300ms;
+    transition: color 300ms;
+}

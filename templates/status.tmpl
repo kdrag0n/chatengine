@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Status" "The status of this website, API, and everything ChatEngine." "status"}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" integrity="sha384-KZ+/uyBm2IDvPclmu18nOw+89Z+hxkiuEmXkuY/2A0Yi22k688CGxV3YS7PtGKgZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/status.css">
+</head>
+<body>
+<div class="container">
+    <div class="logo">
+        <img src="/static/img/icon.png">
+    </div>
+    <div class="section">
+        <div class="status-header">
+            <div class="indicator"></div>
+            <div class="title">All services are online.</div>
+            <div class="subtitle">As of August 1, 2016 at 11:08PM MST.</div>
+        </div>
+        <div class="status-uptime">
+            <div class="title">Services</div>
+            <div class="uptime">Uptime of the past 90 days</div>
+        </div>
+        <div class="status-list">
+            <div class="api">
+                <div class="label">API</div>
+                <div class="bar"><progress class="progress is-success" value="99" max="100">99%</progress></div>
+                <div class="amount has-text-centered">99%</div>
+            </div>
+            <hr>
+            <div class="lib">
+                <div class="label">library.js</div>
+                <div class="bar"><progress class="progress is-success" value="99" max="100">99%</progress></div>
+                <div class="amount has-text-centered">99%</div>
+            </div>
+            <hr>
+            <div class="website">
+                <div class="label">website</div>
+                <div class="bar"><progress class="progress is-success" value="100" max="100">100%</progress></div>
+                <div class="amount has-text-centered">100%</div>
+            </div>
+            <hr>
+            <div class="website">
+                <div class="label">something hacky</div>
+                <div class="bar"><progress class="progress is-warning" value="40" max="100">40%</progress></div>
+                <div class="amount has-text-centered">40%</div>
+            </div>
+            <hr>
+            <div class="website">
+                <div class="label">something unreliable</div>
+                <div class="bar"><progress class="progress is-danger" value="14" max="100">14%</progress></div>
+                <div class="amount has-text-centered">14%</div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="status-footer">
+            <p>
+                <a href="#">Legal</a>
+                <a href="#">About</a>
+                <a href="#">Jobs</a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

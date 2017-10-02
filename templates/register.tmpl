@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Sign Up" "Sign up for an account on ChatEngine, and get access to a free key!" "signup"}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" integrity="sha384-KZ+/uyBm2IDvPclmu18nOw+89Z+hxkiuEmXkuY/2A0Yi22k688CGxV3YS7PtGKgZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/bg3.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/1.3.5/cash.min.js" integrity="sha384-lQ7xw9BfI+dxbYXadQYkYebeHeyMeYYYUrM/oD5Z0g/ediwh63F/Mf6x48hs4m3E" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js" integrity="sha384-jhGcGHNZytnBnH1wbEM3KxJYyRDy9Q0QLKjE65xk+aMqXFCdvFuYIjzMWAAWBBtR" crossorigin="anonymous" async defer></script>
+
+    <script src="/static/js/register.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-4 is-offset-4">
+                    <h1 class="title">
+                        <img src="/static/img/icon.png" alt="ChatEngine" class="image himage">
+                    </h1>
+
+                    <form method="post" action="register" enctype="application/x-www-form-urlencoded">
+                        <div class="box">
+                            <div class="field email-field">
+                                <p class="control has-icons-left">
+                                    <input class="input{{if .errorEmail}} is-danger{{end}}" type="email" name="email" placeholder="E-mail address" oninput="emailUpdate();">
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+                                </p>
+                                <p class="help{{if .errorEmail}} is-danger{{end}}">{{if .errorEmail}}{{.errorEmail}}{{else}}&nbsp;{{end}}</p>
+                            </div>
+                            <div class="field password-field">
+                                <p class="control has-icons-left">
+                                    <input class="input{{if .errorPassword}} is-danger{{end}}" type="password" name="password" placeholder="Password" id="passwd" oninput="pwdChanged();passwdUpdate();">
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+                                </p>
+                                <p class="help{{if .errorPassword}} is-danger{{end}}">{{if .errorPassword}}{{.errorPassword}}{{else}}&nbsp;{{end}}</p>
+                            </div>
+                            <div class="field">
+                                <label class="label" id="ps-label">Estimated crack time: </label>
+                                <progress class="progress" value="1" max="100" id="pwd-strength"></progress>
+                            </div>
+                            <div class="field confirm-field">
+                                <p class="control has-icons-left">
+                                    <input class="input{{if .errorConfirm}} is-danger{{end}}" type="password" name="confirm" placeholder="Confirm Password" oninput="confirmUpdate();">
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+                                </p>
+                                <p class="help{{if .errorConfirm}} is-danger{{end}}">{{if .errorConfirm}}{{.errorConfirm}}{{else}}&nbsp;{{end}}</p>
+                            </div>
+                            <div class="field">
+                                <p class="control">
+                                    <button class="button is-success is-fluid">Register</button>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="g-recaptcha" data-sitekey="{{.recaptchaKey}}" data-callback="recCallback" data-expired-callback="recExpCallback"></div>
+                    </form>
+
+                    <div class="box">Already have an account? <a href="login">Login</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

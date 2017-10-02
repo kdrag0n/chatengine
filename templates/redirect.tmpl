@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>{{$finalDest := calculatePath .ctx .mode .destination}}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <noscript>
+        <meta http-equiv="refresh" content="0; URL='{{$finalDest}}'">
+    </noscript>
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="ChatEngine">
+    <meta property="og:title" content="ChatEngine: Redirect">
+    <meta property="og:url" content="https://chatengine.xyz/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="ChatEngine is redirecting you... with the force.">
+    <meta property="og:image" content="https://chatengine.xyz/static/img/icon.png">
+
+    <meta name="twitter:title" content="ChatEngine: Redirect">
+    <meta name="twitter:url" content="https://chatengine.xyz/">
+    <meta name="twitter:description" content="ChatEngine is redirecting you... with the force.">
+    <meta name="twitter:image" content="https://chatengine.xyz/static/img/icon.png">
+    <meta name="twitter:card" content="summary">
+
+    <title>Redirecting...</title>
+    <link rel="shortcut icon" type="image/png" href="/static/img/icon.png">
+</head>
+<body>
+    <p>Redirecting... If nothing happens, <a href="{{$finalDest}}">click here</a> to proceed.</p>
+    <script>window.location.href ="{{$finalDest}}";</script>
+</body>
+</html>

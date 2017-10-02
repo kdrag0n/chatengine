@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Time Check" "A time and system clock accuracy checker for ChatEngine." "troubleshooting/time"}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" integrity="sha384-KZ+/uyBm2IDvPclmu18nOw+89Z+hxkiuEmXkuY/2A0Yi22k688CGxV3YS7PtGKgZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/bg4.css">
+
+    <script src="/static/js/promise.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" integrity="sha384-+YY1buT7tM9na0/PzJFojzO+W6HFlbYTba/CUsXtflkAYB4ZE8WC5cOcbEyo0CIb" crossorigin="anonymous" async></script>
+    <script src="/static/js/time.js" defer></script>
+</head>
+<body>
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-4 is-offset-4">
+                    <h1 class="title" style="color:white;">Time Check</h1>
+                    <div class="box"><p>This page will check the accuracy of your system time compared to the reference server clock.
+                        The difference shown is adjusted for <a href="latency">latency</a> between you and the server.</p></div>
+                    <div class="box">
+                        <noscript>
+                            <style>
+                                #display {
+                                    display: none;
+                                }
+                            </style>
+                            <p><strong>You need JavaScript enabled for this checker to work!</strong></p>
+                        </noscript>
+                        <p id="calcl"><strong>Calculating latency (for adjustment)...</strong></p>
+                        <p id="display" style="display:none;">Your system's time is <strong id="lat">[calculating...]</strong> <strong id="direction">ahead</strong>  the server's.</p>
+                    </div>
+                    <div class="box"><a href="./">Back to Troubleshooting hub</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

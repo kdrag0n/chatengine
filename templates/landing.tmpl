@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Home" "Welcome to ChatEngine, a natural language conversational chat bot that talks to you like a human." ""}}
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="prefetch" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato" as="style">
+    <link rel="prefetch" href="/static/css/common.css">
+    <link rel="preload" href="/static/css/common.css" as="style">
+    <link rel="prerender" href="/chat">
+
+    <title>ChatEngine</title>
+    <link rel="shortcut icon" type="image/png" href="/static/img/icon.png">
+
+    <style>
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha384-2X//P+hP8e8Kia5lcEJAyW2vaaYxCuSphlrx9A6imNkRUADNZGUMbsf3eQs9E+XJ" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/static/css/landing.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Josefin+Sans|Fira+Code" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" integrity="sha384-6iYDyQZuuNT7DcPJGXx241czdv2+GDGUcXRiqw1iXrjgYMTorSetxFP3JCMQMwnR" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/1.3.5/cash.min.js" integrity="sha384-lQ7xw9BfI+dxbYXadQYkYebeHeyMeYYYUrM/oD5Z0g/ediwh63F/Mf6x48hs4m3E" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.3.0/rellax.min.js" integrity="sha384-7kOCOMf6VPPwxXBdtSjaDMNHYLOpgS9dljbI9QXNS03HaJk/JJ3Mx6DpL7HDZaM/" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js" integrity="sha384-PDjg2ZdS3khPzd53i18+7tzB32JVQfFMrTXYo21RqPgUmEVAPwIhxOUF/8sP79CS" crossorigin="anonymous" defer></script>
+    <script src="/static/js/landing.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <header class="navbar-container">
+            <flex class="navbar">
+                <flex>
+                    <a href="#" class="active item">Home</a>
+                    <a class="item" href="chat">Chat</a>
+                    <a class="item" href="docs/">Documentation</a>
+                    <a class="item" href="troubleshooting/">Troubleshooting</a>
+                    {{if .adminKey}}<a class="item" href="admin/">Admin</a>{{end}}
+                </flex>
+                <flex>
+                    {{if .loggedIn}}
+                    <a class="item" href="manage/dashboard">Go to Dashboard</a>
+                    {{else}}
+                    <a class="item" href="login">Login</a>
+                    <a class="item" href="register">Sign Up</a>
+                    {{end}}
+                </flex>
+            </flex>
+        </header>
+
+        <section class="parallax scene full">
+            <div class="vhcenter">
+                <h1 class="caps mono" style="line-height: 1.5em;">Chat(<knockout font="mono">Engine</knockout>);</h1>
+                <h2 class="caps">The Smart Chatbot</h2>
+                <h3 class="caps">A Good Pal to Talk To</h3><br>
+
+                <a class="main-btn" href="chat">Talk Now</a>
+            </div>
+        </section>
+
+        <section class="parallax full main-bg">
+
+        </section>
+
+        <section class="parallax scene" data-rellax-speed="7" data-rellax-zindex="5">
+            <h1>Fast</h1>
+        </section>
+
+        <section class="parallax scene" data-rellax-speed="-4" data-rellax-zindex="-2">
+            <h1>Slow</h1>
+        </section>
+
+        <section class="parallax scene">
+            <h1>I dunno for this one</h1>
+        </section>
+
+        <footer class="parallax footer" data-rellax-speed="-3">
+            <div class="hcenter">
+                <flex class="foot">
+                    <flex>
+
+                    </flex>
+                    <flex>
+
+                    </flex>
+                </flex>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

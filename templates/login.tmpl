@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Login" "Login to ChatEngine to manage your keys and other items." "login"}}
+
+    <link rel="stylesheet" href="/static/css/semantic_cmps.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+    <script src="/static/js/semantic_cmps.min.js"></script>
+
+    <style>
+        body {
+            background: #dadada url(/static/img/bg3.jpg);
+            background-size: 100% 100%;
+        }
+        body > .grid {
+            height: 100%;
+        }
+        .image {
+            margin-top: -100px;
+        }
+        .column {
+            max-width: 450px;
+        }
+        .ui.stacked.segment:after {
+            display: none;
+        }
+    </style>
+
+    <!--<link rel="prerender" href="/manage/dashboard"> TODO: make it werk or somethin-->
+</head>
+<body>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui image header">
+                <img src="/static/img/icon.png" alt="ChatEngine" class="image">
+            </h2>
+
+            <form class="ui large form{{if .errors}} error{{end}}" method="post" action="login" enctype="application/x-www-form-urlencoded">
+                <div class="ui stacked segment">
+                    <div class="field{{if .errorEmail}} error{{end}}">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="email" placeholder="E-mail address">
+                        </div>
+                    </div>
+                    <div class="field{{if .errorPassword}} error{{end}}">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <input type="checkbox" name="remember_me" checked title="Remember me"> Remember me
+                    </div>
+                    <div class="ui fluid large orange submit button">Login</div>
+                </div>
+
+                <div class="ui error message">
+                    {{if .errors}}<ul class="list">{{range .errors}}
+                        <li>{{.}}</li>
+                    {{end}}</ul>{{end}}
+                </div>
+            </form>
+
+            <div class="ui message">Don't have an account yet? <a href="register">Sign Up</a></div>
+        </div>
+    </div>
+
+    <script>
+        $('.ui.form')
+            .form({
+                fields: {
+                    email: {
+                        identifier: 'email',
+                        rules: [
+                            {
+                                type: 'email',
+                                prompt: 'Please enter a valid e-mail address'
+                            }
+                        ]
+                    },
+                    password: {
+                        identifier: 'password',
+                        rules: [
+                            {
+                                type: 'length[6]',
+                                prompt: 'You must enter a password with at least 6 characters'
+                            }
+                        ]
+                    }
+                }
+            });
+    </script>
+</body>
+</html>

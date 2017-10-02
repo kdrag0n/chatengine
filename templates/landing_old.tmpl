@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <meta property="og:locale" content="en_US"/>
+        <meta property="og:site_name" content="ChatEngine"/>
+        <meta property="og:title" content="ChatEngine"/>
+        <meta property="og:url" content="https://chatengine.xyz/"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:description" content="Welcome to ChatEngine, a natural language conversational chat bot that talks to you like a human."/>
+        <meta property="og:image" content="https://chatengine.xyz/static/img/icon.png"/>
+
+        <meta name="twitter:title" content="ChatEngine"/>
+        <meta name="twitter:url" content="https://chatengine.xyz/"/>
+        <meta name="twitter:description" content="Welcome to ChatEngine, a natural language conversational chat bot that talks to you like a human."/>
+        <meta name="twitter:image" content="https://chatengine.xyz/static/img/icon.png"/>
+        <meta name="twitter:card" content="summary"/>
+
+        <title>ChatEngine</title>
+        <link rel="shortcut icon" type="image/png" href="/static/img/icon.png">
+        <link rel="stylesheet" href="/static/css/semantic_cmps.min.css">
+        <link rel="stylesheet" href="/static/css/landing.css">
+
+        <style>
+            .hidden.menu {
+                display: none;
+            }
+
+            .masthead.segment {
+                min-height: 700px;
+                padding: 1em 0em;
+            }
+            .masthead .logo.item img {
+                margin-right: 1em;
+            }
+            .masthead .ui.menu .ui.button {
+                margin-left: 0.5em;
+            }
+            .masthead h1.ui.header {
+                margin-top: 3em;
+                margin-bottom: 0em;
+                font-size: 4em;
+                font-weight: normal;
+            }
+            .masthead h2 {
+                font-size: 1.7em;
+                font-weight: normal;
+            }
+
+            .ui.vertical.stripe {
+                padding: 8em 0em;
+            }
+            .ui.vertical.stripe h3 {
+                font-size: 2em;
+            }
+            .ui.vertical.stripe .button + h3,
+            .ui.vertical.stripe p + h3 {
+                margin-top: 3em;
+            }
+            .ui.vertical.stripe {
+                clear: both;
+            }
+            .ui.vertical.stripe p {
+                font-size: 1.33em;
+            }
+            .ui.vertical.stripe .horizontal.divider {
+                margin: 3em 0em;
+            }
+
+            .quote.stripe.segment {
+                padding: 0em;
+            }
+            .quote.stripe.segment .grid .column {
+                padding-top: 5em;
+                padding-bottom: 5em;
+            }
+
+            .footer.segment {
+                padding: 5em 0em;
+            }
+
+            .secondary.pointing.menu .toc.item {
+                display: none;
+            }
+
+            @media only screen and (max-width: 700px) {
+                .ui.fixed.menu {
+                    display: none !important;
+                }
+                .secondary.pointing.menu .item,
+                .secondary.pointing.menu .menu {
+                    display: none;
+                }
+                .secondary.pointing.menu .toc.item {
+                    display: block;
+                }
+                .masthead.segment {
+                    min-height: 350px;
+                }
+                .masthead h1.ui.header {
+                    font-size: 2em;
+                    margin-top: 1.5em;
+                }
+                .masthead h2 {
+                    margin-top: 0.5em;
+                    font-size: 1.5em;
+                }
+            }
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+        <script src="/static/js/semantic_cmps.min.js"></script>
+        <script>
+        $(document)
+            .ready(function() {
+                $('.masthead')
+                    .visibility({
+                        once: false,
+                        onBottomPassed: function() {
+                            $('.fixed.menu').transition('fade in');
+                        },
+                        onBottomPassedReverse: function() {
+                            $('.fixed.menu').transition('fade out');
+                        }
+                    });
+
+                $('.ui.sidebar')
+                    .sidebar('attach events', '.toc.item');
+            });
+        </script>
+    </head>
+    <body>
+        <div class="ui large top fixed hidden menu">
+            <div class="ui container">
+                <a class="active item">Home</a>
+                <a class="item" href="chat">Talk</a>
+                <a class="item" href="docs/">Documentation</a>
+                <a class="item" href="troubleshooting/">Troubleshooting</a>
+                {{if .adminKey}}<a class="item" href="admin/">Admin</a>{{end}}
+                <div class="right menu">
+                    {{if .loggedIn}}
+                    <div class="item">
+                        <a class="ui primary button" href="manage/dashboard">Go to Dashboard</a>
+                    </div>
+                    {{else}}
+                    <div class="item">
+                        <a class="ui button" href="login">Login</a>
+                    </div>
+                    <div class="item">
+                        <a class="ui primary button" href="register">Sign Up</a>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+
+        <div class="ui vertical inverted sidebar menu">
+            <a class="active item">Home</a>
+            <a class="item" href="chat">Talk</a>
+            <a class="item" href="docs/">Documentation</a>
+            <a class="item" href="troubleshooting/">Troubleshooting</a>
+            {{if .adminKey}}<a class="item" href="admin/">Admin</a>{{end}}
+            <div class="ui horizontal divider"></div>
+            {{if .loggedIn}}
+            <a class="item" href="manage/dashboard">Go to Dashboard</a>
+            {{else}}
+            <a class="item" href="login">Login</a>
+            <a class="item" href="register">Sign Up</a>
+            {{end}}
+        </div>
+
+        <div class="pusher">
+            <div class="ui inverted vertical masthead center aligned segment aur-bg">
+                <div class="ui container">
+                    <div class="ui large secondary inverted pointing menu trans-menu">
+                        <a class="toc item">
+                            <i class="sidebar icon"></i>
+                        </a>
+                        <a class="active item">Home</a>
+                        <a class="item" href="chat">Talk</a>
+                        <a class="item" href="docs/">Documentation</a>
+                        <a class="item" href="troubleshooting/">Troubleshooting</a>
+                        {{if .adminKey}}<a class="item" href="admin/">Admin</a>{{end}}
+                        <div class="right item">
+                            {{if .loggedIn}}
+                            <a class="ui inverted button" href="manage/dashboard">Go to Dashboard</a>
+                            {{else}}
+                            <a class="ui inverted button" href="login">Login</a>
+                            <a class="ui inverted button" href="register">Sign Up</a>
+                            {{end}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui text container">
+                    <h1 class="ui header inverted">ChatEngine</h1>
+                    <h2>A robot to talk with, at any time you want</h2>
+                    <a class="ui huge red button" href="chat">Talk with it now <i class="right arrow icon"></i></a>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui middle aligned stackable grid container">
+                    <div class="row">
+                        <div class="eight wide column">
+                            <h3 class="ui header">Friendly</h3>
+                            <p>Have you ever felt like you just want to sit down and talk to a nice, friendly robot? Was Cleverbot too...strange, or unfriendly? Well, ChatEngine has got you covered. Feel free to talk to it at any time.</p>
+                            <h3 class="ui header">Responds Quickly</h3>
+                            <p>Were you ever talking to another chatbot, like Cleverbot, and found that it takes <i>so long</i> to respond? ChatEngine is usually much faster. You should get a response no more than half a second (normally, a quarter of a second) after you hit enter!</p>
+                        </div>
+                        <div class="six wide right floated column">
+                            <img src="/static/img/icon.png" class="ui large bordered rounded image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe quote segment">
+                <div class="ui equal width stackable internally celled grid">
+                    <div class="center aligned row">
+                        <div class="column">
+                            <h3>From cats to dogs...</h3>
+                        </div>
+                        <div class="column">
+                            <h3>and from universes to robots...</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment" style="padding: 1em 0; padding-bottom: 4em;">
+                <div class="ui text container">
+                    <h4 class="ui horizontal header divider">
+                        <a href="features">API Features</a>
+                    </h4>
+
+                    <h3 class="ui header">Smart</h3>
+                    <p>It's almost as smart as Cleverbot! If you miss the old, easy-to-use Cleverbot API (with a library of course), this should work just as well for you. Not to mention, it's very easy to use even <strong>without</strong> a library! Simply POST with JSON, and get JSON back.</p>
+
+                    <h3 class="ui header" style="margin-top: 1em;">Snappy</h3>
+                    <p>Have you ever thought Cleverbot was a bit slow? Well, look no further. With speeds exceeding Cleverbot's response times, you can get a response just about as soon as you request it.</p>
+                </div>
+            </div>
+
+            <div class="ui inverted vertical footer segment">
+                <div class="ui container">
+                    <div class="ui stackable inverted divided equal height stackable grid">
+                        <div class="three wide column">
+                            <h4 class="ui inverted header">Links</h4>
+                            <div class="ui inverted link list">
+                                <a href="https://khronodragon.com/goldmine" class="item">Goldmine Bot</a>
+                                <a href="https://www.patreon.com/kdragon" class="item">Patreon</a>
+                                <a href="chat" class="item">Web Chat</a>
+                                <a href="login" class="item">Log In</a>
+                                <a href="register" class="item">Sign Up</a>
+                                <a href="docs/" class="item">Documentation</a>
+                            </div>
+                        </div>
+                        <div class="seven wide column">
+                            <h4 class="ui inverted header">Do <strong><i>you</i></strong> want to use this?</h4>
+                            <p>There is currently no automatic signup and get keys service.<br>To get your hands on a key, visit <a href="https://www.patreon.com/kdragon">Dragon's Patreon</a>. There, you can get a key for this API as a reward.<br><br><strong>Good luck!</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

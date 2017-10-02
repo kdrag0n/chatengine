@@ -1,0 +1,61 @@
+# ---> Go
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+/chatengine
+
+# Folders
+_obj
+_test
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+
+*.exe
+*.test
+*.prof
+
+
+
+/*.bson
+/*.gob
+/*.gob.atom*
+/keys.json
+/config.json
+/.idea
+/debug
+
+# Slate
+/slate_docs/*.gem
+/slate_docs/*.rbc
+/slate_docs/.bundle
+/slate_docs/.config
+/slate_docs/coverage
+/slate_docs/InstalledFiles
+/slate_docs/lib/bundler/man
+/slate_docs/pkg
+/slate_docs/rdoc
+/slate_docs/spec/reports
+/slate_docs/test/tmp
+/slate_docs/test/version_tmp
+/slate_docs/tmp
+/slate_docs/*.DS_STORE
+/slate_docs/.cache
+/slate_docs/.vagrant
+/slate_docs/.sass-cache
+
+# YARD artifacts
+/slate_docs/.yardoc
+/slate_docs/_yardoc
+/slate_docs/doc/
+/slate_docs/.idea/

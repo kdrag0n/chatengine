@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Admin" "ChatEngine's admin interface, for the service administrators. DO NOT ENTER." "admin/"}}
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <h1>{{.title}}</h1>
+    <p>{{.desc}}</p>
+    <br>
+
+    {{if .list}}
+    {{if .listhead}}{{.listhead}}{{end}}
+    <ul>
+    {{range .list}}
+        <li>{{.}}</li>
+    {{end}}
+    </ul>
+    {{else}}
+    <p>{{.content}}</p>
+    {{end}}
+
+    <br>
+    <a href="javascript:window.location.reload();">Reload</a><br>
+    <a href="/admin/">Back to admin index</a>
+    <a href="/">Back to landing page</a>
+</body>
+</html>

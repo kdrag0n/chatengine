@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Message View" "A webchat simulation view that displays messages." ""}}
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" integrity="sha384-i/ZLCOBtDmoxztrtShNvc3vGe1+IbOGDzkZNC4KLXurv/BT7QInnM2AsPnvbgXH/" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/chat.css">
+</head>
+<body>
+    <h1 class="title">{{.title}}</h1>
+
+    <div class="wrapper">
+        <div class="nav">
+            <h3 class="main-nav-item">Chat Transcript</h3>
+            <p style="color:#fff;">{{.desc}}</p>
+        </div>
+        <div class="inner" id="inner">
+            <div class="content" id="content">
+                {{range $index, $entry := .messages}}
+                <div class="message-wrapper {{if isEven $index}}me{{else}}them{{end}}">
+                    <div class="circle-wrapper bounceIn"></div>
+                    <div class="text-wrapper fadeIn">{{ $entry.Message.Text }}</div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

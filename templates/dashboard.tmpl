@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head "Dashboard" "Manage and view all your ChatEngine keys, your account, and more." "manage/dashboard"}}
+
+    <link rel="stylesheet" href="/static/css/semantic_cmps.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/1.3.5/cash.min.js" integrity="sha384-lQ7xw9BfI+dxbYXadQYkYebeHeyMeYYYUrM/oD5Z0g/ediwh63F/Mf6x48hs4m3E" crossorigin="anonymous"></script>
+    <script src="/static/js/semantic_cmps.min.js"></script>
+
+    <style>
+        body {
+            background: #dadada url(/static/img/bg3.jpg);
+            background-size: 100% 100%;
+        }
+        body > .grid {
+            height: 100%;
+        }
+        .image {
+            margin-top: -100px;
+        }
+        .column {
+            max-width: 450px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui image header">
+                <img src="/static/img/icon.png" alt="ChatEngine" class="image">
+            </h2>
+
+            <div class="ui message">You are logged in as: <strong>{{.uname}}</strong> &bullet; <code>{{.uid}}</code><br>
+            You logged in at <strong>{{.ltime}}</strong>, from <strong>{{.loginIP}}</strong>.<br>
+            {{if .rememberMe}}You chose to <strong>remember me</strong>.{{end}}</div>
+            <div class="ui message"><a href="/logout">Logout</a></div>
+        </div>
+    </div>
+</body>
+</html>
